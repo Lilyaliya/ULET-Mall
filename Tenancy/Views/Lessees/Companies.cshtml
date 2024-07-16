@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Tenancy.Models.Lessee>
+@{
+    ViewBag.Title = "Companies";
+}
+
+<h2>Карта этажа</h2>
+<p>
+    @if (ViewBag.Floor != null)
+    {
+        if (ViewBag.Floor == 0)
+        {
+            <a href="~/Images/Floor/etaz0koltso2022sep.jpg">
+                <img alt src="~/Images/Floor/etaz0koltso2022sep.jpg" />
+            </a>
+        }
+        else if (ViewBag.Floor == 1)
+        {
+            <a href="~/Images/Floor/etaz1koltso2022sep.jpg">
+                <img alt src="~/Images/Floor/etaz1koltso2022sep.jpg" />
+            </a>
+        }
+        else if (ViewBag.Floor == 2)
+        {
+            <a href="~/Images/Floor/etaz2koltso2022sep.jpg">
+                <img alt src="~/Images/Floor/etaz2koltso2022sep.jpg" />
+            </a>
+        }
+        else if (ViewBag.Floor == 3)
+        {
+            <a href="~/Images/Floor/etaz3koltso2022sep.jpg">
+                <img alt src="~/Images/Floor/etaz3koltso2022sep.jpg" />
+            </a>
+        }
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Код помещения")
+        </th>
+        <th>
+            @Html.DisplayName("Организация")
+        </th>
+
+
+        <th>
+            @Html.DisplayName("Торговый профиль")
+        </th>
+
+
+        <th>
+            @Html.DisplayName("Сайт")
+        </th>
+        <th></th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.СommercialPremises_Code)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Organization)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.TradingProfile)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Website)
+    </td>
+
+
+</tr>
+        }
+    }
+
+
+</table>
+    }
+    else
+    {
+        <h1>Здесь еще никаких помещений нет!</h1>
+    }
+
+</p>
+

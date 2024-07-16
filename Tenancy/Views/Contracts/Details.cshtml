@@ -1,0 +1,90 @@
+﻿@model Tenancy.Models.Contract
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contract</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RentalStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentalStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RentalEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentalEndDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileNameContract)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileNameContract)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileDataContract)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileDataContract)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileNameLessee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileNameLessee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileDataLessee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileDataLessee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lessee.Organization)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lessee.Organization)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lessor.Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lessor.Surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Premises.Electricity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Premises.Electricity)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ContractCode }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

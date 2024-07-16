@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Tenancy.Models.Premises>
+
+@{
+    ViewBag.Title = "Floor";
+}
+
+<!--<h2>Этаж Model.FirstOrDefault().Floor.ToString()</h2>-->
+<!--<p>
+    Html.ActionLink("Create New", "Create")
+</p>-->
+<p>
+    @if (Model.FirstOrDefault() != null)
+    {
+        if (Model.First().Floor == 0)
+        {
+            <a href="~/Images/Floor/etaz0koltso2022sep.jpg">
+                <img alt src="~/Images/Floor/etaz0koltso2022sep.jpg" />
+            </a>
+        }
+        else if (Model.First().Floor == 1)
+        {
+            <a href="~/Images/Floor/etaz1koltso2022sep.jpg">
+                <img alt src="~/Images/Floor/etaz1koltso2022sep.jpg" />
+            </a>
+        }
+        else if (Model.First().Floor == 2)
+        {
+            <a href="~/Images/Floor/etaz2koltso2022sep.jpg">
+                <img alt src="~/Images/Floor/etaz2koltso2022sep.jpg" />
+            </a>
+        }
+        else if (Model.First().Floor == 3)
+        {
+            <a href="~/Images/Floor/etaz3koltso2022sep.jpg">
+                <img alt src="~/Images/Floor/etaz3koltso2022sep.jpg" />
+            </a>
+        }
+    }
+    else
+    {
+        <h1>Здесь еще никаких помещений нет!</h1>
+    }
+
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Square)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CostPerSM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicationStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Lessor.Surname)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Square)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CostPerSM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Lessor.Surname)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.СommercialPremises_Code }) |
+                @Html.ActionLink("Details", "Details", new { id = item.СommercialPremises_Code }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.СommercialPremises_Code })
+            </td>
+        </tr>
+    }
+
+</table>
+

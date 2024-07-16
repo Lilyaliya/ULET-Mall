@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Tenancy.Models.Contract>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RentalStartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentalEndDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileNameContract)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileDataContract)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileNameLessee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileDataLessee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lessee.Organization)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lessor.Surname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Premises.Electricity)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RentalStartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RentalEndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileNameContract)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileDataContract)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileNameLessee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileDataLessee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lessee.Organization)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lessor.Surname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Premises.Electricity)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ContractCode }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ContractCode }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ContractCode })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "IndexLessor";
+}
+
+<h2>Авторизация в системе (Арендодатель)</h2>
+@if (Request.IsAuthenticated)
+{
+
+    <span>Добро пожаловать, @Html.Encode(User.Identity.Name) !</span>
+    <p>@Html.ActionLink("Редактировать запись", "Edit", "Lessors")</p>
+    <p>@Html.ActionLink("Панель управления", "Index", "Lessors")</p>
+}
+else
+{
+    <p>@Html.ActionLink("Войти", "Login", "Registers")</p>
+    <p>@Html.ActionLink("Регистрация", "CreateLessor", "Registers")</p>
+}

@@ -1,0 +1,137 @@
+﻿@model IEnumerable<Tenancy.Models.Lessee>
+@{
+    ViewBag.Title = "AvialableLessees";
+}
+
+<h2>Поступившие заявки</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Организация")
+        </th>
+        <th>
+            @Html.DisplayName("ТОрговые марки")
+        </th>
+        <th>
+            @Html.DisplayName("Тип бренда")
+        </th>
+        <th>
+            @Html.DisplayName("Торговый профиль")
+        </th>
+        <th>
+            @Html.DisplayName("Товарный профиль")
+        </th>
+        <th>
+            @Html.DisplayName("Фамилия")
+        </th>
+        <th>
+            @Html.DisplayName("Имя")
+        </th>
+        <th>
+            @Html.DisplayName("Отчество")
+        </th>
+        <th>
+            @Html.DisplayName("Код помещения")
+        </th>
+        <th>
+            @Html.DisplayName("Почта")
+        </th>
+        <th>
+            @Html.DisplayName("Сайт")
+        </th>
+        <th>
+            @Html.DisplayName("Телефон")
+        </th>
+        <th>
+            @Html.DisplayName("СТатус заявки")
+        </th>
+        
+        <th>
+            @Html.DisplayName("Дата начала аренды")
+        </th>
+        <th>
+            @Html.DisplayName("Дата окончания аренды")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Organization)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trademarks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrandType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TradingProfile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductProfile)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SecondName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.СommercialPremises_Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Website)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationStatus)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.RentalStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RentalEndDate)
+            </td>
+            <td>
+                @Html.ActionLink("Предложить сотрудничество", "ChangeStatus", new { id = item.Lessee_ID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Имя приложения", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Заявки", "AvialableLessees", "Lessors")</li>
+                <li>@Html.ActionLink("Помещения", "PremisesList", "Premises")</li>
+                <li>@Html.ActionLink("Договора", "AvialableContracts", "Contracts")</li>
+                <li>@Html.ActionLink("Назад", "IndexLessor", "Registers")</li>
+                <!--<li>Html.ActionLink("Выход", "Logout", "LogRegs")</li>-->
+            </ul>
+        </div>
+    </div>
+</div>

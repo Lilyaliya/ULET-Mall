@@ -1,0 +1,128 @@
+﻿@model Tenancy.Models.Premises
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Premises</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Floor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Floor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Square)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Square)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UtilityRoom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UtilityRoom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Windows)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Windows)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Electricity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Electricity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WaterSupply)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WaterSupply)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conditioner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conditioner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Details)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CostPerSM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CostPerSM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lessee.Organization)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lessee.Organization)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lessor.Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lessor.Surname)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

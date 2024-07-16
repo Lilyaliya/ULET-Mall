@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "IndexLessee";
+}
+
+
+@if (Request.IsAuthenticated)
+{
+    <h2>Добро пожаловать, @Html.Encode(User.Identity.Name) !</h2>
+    <span>Доступные действия</span>
+    if (Tenancy.Controllers.LesseesController.StatusBook != "В ОБРАБОТКЕ")
+    {
+        <p>@Html.ActionLink("Редактировать заявку", "Edit", "Lessees")</p>
+        <P>@Html.ActionLink("Поступившие предложения", "AvialablePremises", "Lessees")</P>
+    }
+    else
+    {
+        <p>Ваша заявка отправлена и ждет подтверждения владельца торговой площадки!</p>
+    }
+}
+else
+{
+    <h2>Авторизация в системе (Арендатор)</h2>
+    <p>@Html.ActionLink("Войти", "Login", "Registers");</p>
+    <p>@Html.ActionLink("Регистрация", "CreateLessee", "Registers");</p>
+}

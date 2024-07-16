@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Tenancy.Models.Lessee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Выберите этаж</h2>
+
+<!--<p>
+    Html.ActionLink("Create New", "Create")
+</p>-->
+
+<p>@Html.ActionLink("Этаж 0", "Companies", new { floor = 0 })</p>
+<p>@Html.ActionLink("Этаж 1", "Companies", new { floor = 1 })</p>
+<p>@Html.ActionLink("Этаж 2", "Companies", new { floor = 2 })</p>
+<p>@Html.ActionLink("Этаж 3", "Companies", new { floor = 3 })</p>

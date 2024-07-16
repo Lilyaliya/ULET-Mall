@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Tenancy.Models.Premises>
+@{
+    ViewBag.Title = "PremisesList";
+}
+
+<h2>Помещения</h2>
+
+<p>
+    @Html.ActionLink("Новая запись", "Create")
+</p>
+@if (Model == null)
+{
+    <p>
+        У вас пока еще нет торговых площадок!
+    </p>
+}
+else
+{
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Код помещения")
+        </th>
+        <th>
+            @Html.DisplayName("Площадь")
+        </th>
+        <th>
+            @Html.DisplayName("Подсобное помещение")
+        </th>
+        <th>
+            @Html.DisplayName("Окна")
+        </th>
+        <th>
+            @Html.DisplayName("Электроснабжение")
+        </th>
+        <th>
+            @Html.DisplayName("Водоснабжение")
+        </th>
+        <th>
+            @Html.DisplayName("Наличие кондиционера")
+        </th>
+        <th>
+            @Html.DisplayName("Подробности")
+        </th>
+        <th>
+            @Html.DisplayName("Стоимость/мес")
+        </th>
+        <th>
+            @Html.DisplayName("СТатус помещения")
+        </th>
+        <th>
+            @Html.DisplayName("Тип помещения")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.PremisesCode)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Square)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.UtilityRoom)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Windows)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Electricity)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.WaterSupply)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Conditioner)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Details)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CostPerSM)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ApplicationStatus)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Type)
+    </td>
+
+
+    <td>
+        @Html.ActionLink("Редактировать", "Edit", new { id = item.СommercialPremises_Code })
+    </td>
+</tr>
+    }
+
+</table>
+}
+

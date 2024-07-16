@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище TenancyModelContainer" CdmEntityContainer="TenancyEntities">
+    <EntitySetMapping Name="Contract">
+      <EntityTypeMapping TypeName="TenancyModel.Contract">
+        <MappingFragment StoreEntitySet="Contract">
+          <ScalarProperty Name="ContractCode" ColumnName="ContractCode" />
+          <ScalarProperty Name="Lessee_ID" ColumnName="Lessee_ID" />
+          <ScalarProperty Name="Lessor_ID" ColumnName="Lessor_ID" />
+          <ScalarProperty Name="СommercialPremises_Code" ColumnName="СommercialPremises_Code" />
+          <ScalarProperty Name="RentalStartDate" ColumnName="RentalStartDate" />
+          <ScalarProperty Name="RentalEndDate" ColumnName="RentalEndDate" />
+          <ScalarProperty Name="FileNameContract" ColumnName="FileNameContract" />
+          <ScalarProperty Name="FileDataContract" ColumnName="FileDataContract" />
+          <ScalarProperty Name="FileNameLessee" ColumnName="FileNameLessee" />
+          <ScalarProperty Name="FileDataLessee" ColumnName="FileDataLessee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lessee">
+      <EntityTypeMapping TypeName="TenancyModel.Lessee">
+        <MappingFragment StoreEntitySet="Lessee">
+          <ScalarProperty Name="Lessee_ID" ColumnName="Lessee_ID" />
+          <ScalarProperty Name="Organization" ColumnName="Organization" />
+          <ScalarProperty Name="Trademarks" ColumnName="Trademarks" />
+          <ScalarProperty Name="BrandType" ColumnName="BrandType" />
+          <ScalarProperty Name="TradingProfile" ColumnName="TradingProfile" />
+          <ScalarProperty Name="ProductProfile" ColumnName="ProductProfile" />
+          <ScalarProperty Name="FileNameSlide" ColumnName="FileNameSlide" />
+          <ScalarProperty Name="FIleData" ColumnName="FIleData" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SecondName" ColumnName="SecondName" />
+          <ScalarProperty Name="СommercialPremises_Code" ColumnName="СommercialPremises_Code" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="ApplicationStatus" ColumnName="ApplicationStatus" />
+          <ScalarProperty Name="ApplicationDescription" ColumnName="ApplicationDescription" />
+          <ScalarProperty Name="RentalStartDate" ColumnName="RentalStartDate" />
+          <ScalarProperty Name="RentalEndDate" ColumnName="RentalEndDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lessor">
+      <EntityTypeMapping TypeName="TenancyModel.Lessor">
+        <MappingFragment StoreEntitySet="Lessor">
+          <ScalarProperty Name="Lessor_ID" ColumnName="Lessor_ID" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SecondName" ColumnName="SecondName" />
+          <ScalarProperty Name="FileNameOwner" ColumnName="FileNameOwner" />
+          <ScalarProperty Name="FIleData" ColumnName="FIleData" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Premises">
+      <EntityTypeMapping TypeName="TenancyModel.Premises">
+        <MappingFragment StoreEntitySet="Premises">
+          <ScalarProperty Name="PremisesCode" ColumnName="PremisesCode" />
+          <ScalarProperty Name="Lessee_ID" ColumnName="Lessee_ID" />
+          <ScalarProperty Name="СommercialPremises_Code" ColumnName="СommercialPremises_Code" />
+          <ScalarProperty Name="Floor" ColumnName="Floor" />
+          <ScalarProperty Name="Square" ColumnName="Square" />
+          <ScalarProperty Name="UtilityRoom" ColumnName="UtilityRoom" />
+          <ScalarProperty Name="Windows" ColumnName="Windows" />
+          <ScalarProperty Name="Electricity" ColumnName="Electricity" />
+          <ScalarProperty Name="WaterSupply" ColumnName="WaterSupply" />
+          <ScalarProperty Name="Conditioner" ColumnName="Conditioner" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="CostPerSM" ColumnName="CostPerSM" />
+          <ScalarProperty Name="ApplicationStatus" ColumnName="ApplicationStatus" />
+          <ScalarProperty Name="Lessor_ID" ColumnName="Lessor_ID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Register">
+      <EntityTypeMapping TypeName="TenancyModel.Register">
+        <MappingFragment StoreEntitySet="Register">
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

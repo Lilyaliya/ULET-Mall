@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TenancyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Contract">
+    <Key>
+      <PropertyRef Name="ContractCode" />
+    </Key>
+    <Property Name="ContractCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Lessee_ID" Type="Int32" Nullable="false" />
+    <Property Name="Lessor_ID" Type="Int32" Nullable="false" />
+    <Property Name="СommercialPremises_Code" Type="Int32" Nullable="false" />
+    <Property Name="RentalStartDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="RentalEndDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="FileNameContract" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FileDataContract" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="FileNameLessee" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FileDataLessee" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Lessee" Relationship="Self.FK_LesseeCodeContract" FromRole="Contract" ToRole="Lessee" />
+    <NavigationProperty Name="Lessor" Relationship="Self.FK_LessorCodeContract" FromRole="Contract" ToRole="Lessor" />
+    <NavigationProperty Name="Premises" Relationship="Self.FK_СommercialPremises_CodeContract" FromRole="Contract" ToRole="Premises" />
+  </EntityType>
+  <EntityType Name="Lessee">
+    <Key>
+      <PropertyRef Name="Lessee_ID" />
+    </Key>
+    <Property Name="Lessee_ID" Type="Int32" Nullable="false" />
+    <Property Name="Organization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Trademarks" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="BrandType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TradingProfile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductProfile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FileNameSlide" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FIleData" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SecondName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="СommercialPremises_Code" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ApplicationStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ApplicationDescription" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="RentalStartDate" Type="DateTime" Precision="7" />
+    <Property Name="RentalEndDate" Type="DateTime" Precision="7" />
+    <NavigationProperty Name="Contract" Relationship="Self.FK_LesseeCodeContract" FromRole="Lessee" ToRole="Contract" />
+    <NavigationProperty Name="Register" Relationship="TenancyModel.FK_Lessee_ID" FromRole="Lessee" ToRole="Register" />
+  </EntityType>
+  <EntityType Name="Lessor">
+    <Key>
+      <PropertyRef Name="Lessor_ID" />
+    </Key>
+    <Property Name="Lessor_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SecondName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FileNameOwner" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FIleData" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Contract" Relationship="Self.FK_LessorCodeContract" FromRole="Lessor" ToRole="Contract" />
+    <NavigationProperty Name="Premises" Relationship="Self.FK_LessorCode" FromRole="Lessor" ToRole="Premises" />
+    <NavigationProperty Name="Register" Relationship="TenancyModel.FK_Lessor_ID" FromRole="Lessor" ToRole="Register" />
+  </EntityType>
+  <EntityType Name="Premises">
+    <Key>
+      <PropertyRef Name="СommercialPremises_Code" />
+    </Key>
+    <Property Name="СommercialPremises_Code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Floor" Type="Int32" Nullable="false" />
+    <Property Name="Square" Type="Double" Nullable="false" />
+    <Property Name="UtilityRoom" Type="Double" />
+    <Property Name="Windows" Type="Int32" />
+    <Property Name="Electricity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WaterSupply" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Conditioner" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Details" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="CostPerSM" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ApplicationStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Lessor_ID" Type="Int32" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Contract" Relationship="Self.FK_СommercialPremises_CodeContract" FromRole="Premises" ToRole="Contract" />
+    <NavigationProperty Name="Lessor" Relationship="Self.FK_LessorCode" FromRole="Premises" ToRole="Lessor" />
+    <Property Name="Lessee_ID" Type="Int32" />
+    <Property Name="PremisesCode" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_LesseeCodeContract">
+    <End Role="Lessee" Type="Self.Lessee" Multiplicity="1" />
+    <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lessee">
+        <PropertyRef Name="Lessee_ID" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="Lessee_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LessorCodeContract">
+    <End Role="Lessor" Type="Self.Lessor" Multiplicity="1" />
+    <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lessor">
+        <PropertyRef Name="Lessor_ID" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="Lessor_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_СommercialPremises_CodeContract">
+    <End Role="Premises" Type="Self.Premises" Multiplicity="1" />
+    <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Premises">
+        <PropertyRef Name="СommercialPremises_Code" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="СommercialPremises_Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LessorCode">
+    <End Role="Lessor" Type="Self.Lessor" Multiplicity="1" />
+    <End Role="Premises" Type="Self.Premises" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lessor">
+        <PropertyRef Name="Lessor_ID" />
+      </Principal>
+      <Dependent Role="Premises">
+        <PropertyRef Name="Lessor_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TenancyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Contract" EntityType="Self.Contract" />
+    <EntitySet Name="Lessee" EntityType="Self.Lessee" />
+    <EntitySet Name="Lessor" EntityType="Self.Lessor" />
+    <EntitySet Name="Premises" EntityType="Self.Premises" />
+    <AssociationSet Name="FK_LesseeCodeContract" Association="Self.FK_LesseeCodeContract">
+      <End Role="Lessee" EntitySet="Lessee" />
+      <End Role="Contract" EntitySet="Contract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LessorCodeContract" Association="Self.FK_LessorCodeContract">
+      <End Role="Lessor" EntitySet="Lessor" />
+      <End Role="Contract" EntitySet="Contract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_СommercialPremises_CodeContract" Association="Self.FK_СommercialPremises_CodeContract">
+      <End Role="Premises" EntitySet="Premises" />
+      <End Role="Contract" EntitySet="Contract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LessorCode" Association="Self.FK_LessorCode">
+      <End Role="Lessor" EntitySet="Lessor" />
+      <End Role="Premises" EntitySet="Premises" />
+    </AssociationSet>
+    <EntitySet Name="Register" EntityType="TenancyModel.Register" />
+    <AssociationSet Name="FK_Lessee_ID" Association="TenancyModel.FK_Lessee_ID">
+      <End Role="Register" EntitySet="Register" />
+      <End Role="Lessee" EntitySet="Lessee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lessor_ID" Association="TenancyModel.FK_Lessor_ID">
+      <End Role="Register" EntitySet="Register" />
+      <End Role="Lessor" EntitySet="Lessor" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Register">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Lessee" Relationship="TenancyModel.FK_Lessee_ID" FromRole="Register" ToRole="Lessee" />
+    <NavigationProperty Name="Lessor" Relationship="TenancyModel.FK_Lessor_ID" FromRole="Register" ToRole="Lessor" />
+  </EntityType>
+  <Association Name="FK_Lessee_ID">
+    <End Type="TenancyModel.Register" Role="Register" Multiplicity="1" />
+    <End Type="TenancyModel.Lessee" Role="Lessee" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Register">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Lessee">
+        <PropertyRef Name="Lessee_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lessor_ID">
+    <End Type="TenancyModel.Register" Role="Register" Multiplicity="1" />
+    <End Type="TenancyModel.Lessor" Role="Lessor" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Register">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Lessor">
+        <PropertyRef Name="Lessor_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

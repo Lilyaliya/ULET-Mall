@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище TenancyModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Contract">
+    <Key>
+      <PropertyRef Name="ContractCode" />
+    </Key>
+    <Property Name="ContractCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Lessee_ID" Type="int" Nullable="false" />
+    <Property Name="Lessor_ID" Type="int" Nullable="false" />
+    <Property Name="СommercialPremises_Code" Type="int" Nullable="false" />
+    <Property Name="RentalStartDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="RentalEndDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="FileNameContract" Type="varchar" MaxLength="50" />
+    <Property Name="FileDataContract" Type="varbinary(max)" />
+    <Property Name="FileNameLessee" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FileDataLessee" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Lessee">
+    <Key>
+      <PropertyRef Name="Lessee_ID" />
+    </Key>
+    <Property Name="Lessee_ID" Type="int" Nullable="false" />
+    <Property Name="Organization" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Trademarks" Type="varchar" MaxLength="250" />
+    <Property Name="BrandType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TradingProfile" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProductProfile" Type="nvarchar" MaxLength="50" />
+    <Property Name="FileNameSlide" Type="nvarchar" MaxLength="50" />
+    <Property Name="FIleData" Type="varbinary(max)" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SecondName" Type="nvarchar" MaxLength="50" />
+    <Property Name="СommercialPremises_Code" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Website" Type="nvarchar" MaxLength="100" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="ApplicationStatus" Type="varchar" MaxLength="50" />
+    <Property Name="ApplicationDescription" Type="nvarchar" MaxLength="150" />
+    <Property Name="RentalStartDate" Type="datetime2" Precision="7" />
+    <Property Name="RentalEndDate" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="Lessor">
+    <Key>
+      <PropertyRef Name="Lessor_ID" />
+    </Key>
+    <Property Name="Lessor_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SecondName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FileNameOwner" Type="nvarchar" MaxLength="50" />
+    <Property Name="FIleData" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Premises">
+    <Key>
+      <PropertyRef Name="СommercialPremises_Code" />
+    </Key>
+    <Property Name="СommercialPremises_Code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Floor" Type="int" Nullable="false" />
+    <Property Name="Square" Type="float" Nullable="false" />
+    <Property Name="UtilityRoom" Type="float" />
+    <Property Name="Windows" Type="int" />
+    <Property Name="Electricity" Type="varchar" MaxLength="50" />
+    <Property Name="WaterSupply" Type="varchar" MaxLength="50" />
+    <Property Name="Conditioner" Type="varchar" MaxLength="50" />
+    <Property Name="Details" Type="varchar" MaxLength="250" />
+    <Property Name="CostPerSM" Type="money" Nullable="false" />
+    <Property Name="ApplicationStatus" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Lessee_ID" Type="int" Nullable="false" />
+    <Property Name="Lessor_ID" Type="int" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_LesseeCodeContract">
+    <End Role="Lessee" Type="Self.Lessee" Multiplicity="1" />
+    <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lessee">
+        <PropertyRef Name="Lessee_ID" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="Lessee_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LessorCode">
+    <End Role="Lessor" Type="Self.Lessor" Multiplicity="1" />
+    <End Role="Premises" Type="Self.Premises" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lessor">
+        <PropertyRef Name="Lessor_ID" />
+      </Principal>
+      <Dependent Role="Premises">
+        <PropertyRef Name="Lessor_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LessorCodeContract">
+    <End Role="Lessor" Type="Self.Lessor" Multiplicity="1" />
+    <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lessor">
+        <PropertyRef Name="Lessor_ID" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="Lessor_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_СommercialPremises_CodeContract">
+    <End Role="Premises" Type="Self.Premises" Multiplicity="1" />
+    <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Premises">
+        <PropertyRef Name="СommercialPremises_Code" />
+      </Principal>
+      <Dependent Role="Contract">
+        <PropertyRef Name="СommercialPremises_Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище TenancyModelContainer">
+    <EntitySet Name="Contract" EntityType="Self.Contract" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lessee" EntityType="Self.Lessee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lessor" EntityType="Self.Lessor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Premises" EntityType="Self.Premises" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_LesseeCodeContract" Association="Self.FK_LesseeCodeContract">
+      <End Role="Lessee" EntitySet="Lessee" />
+      <End Role="Contract" EntitySet="Contract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LessorCode" Association="Self.FK_LessorCode">
+      <End Role="Lessor" EntitySet="Lessor" />
+      <End Role="Premises" EntitySet="Premises" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LessorCodeContract" Association="Self.FK_LessorCodeContract">
+      <End Role="Lessor" EntitySet="Lessor" />
+      <End Role="Contract" EntitySet="Contract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_СommercialPremises_CodeContract" Association="Self.FK_СommercialPremises_CodeContract">
+      <End Role="Premises" EntitySet="Premises" />
+      <End Role="Contract" EntitySet="Contract" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,162 @@
+﻿@model Tenancy.Models.Lessee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Lessee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Organization)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Organization)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Trademarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trademarks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BrandType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrandType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TradingProfile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TradingProfile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductProfile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductProfile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileNameSlide)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileNameSlide)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FIleData)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FIleData)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecondName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.СommercialPremises_Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.СommercialPremises_Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Website)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Website)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicationDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RentalStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentalStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RentalEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RentalEndDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Lessee_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
